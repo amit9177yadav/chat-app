@@ -29,7 +29,7 @@ export default function Contacts({ contacts, changeChat }) {
         <Container>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h3>People</h3>
+            <h3>Peoples</h3>
           </div>
           <div className="contacts">
             {contacts.map((contact, index) => (
@@ -92,22 +92,22 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     overflow: auto;
-    gap: 0.1rem;
+    gap: 15px;
     &::-webkit-scrollbar {
-      width: 0.1rem;
+      width: 12px;
       &-thumb {
-        background-color: #ffffff39;
-        width: 0.1rem;
-        border-radius: 2rem;
+        background-color: #42d4f5;
+        width: 0.2rem;
+        border-radius: 0.8rem;
       }
     }
     .contact {
-      background-color: #ffffff34;
-      min-height: 5rem;
+      background-color: #42d4f5;
+      min-height: 3rem;
       cursor: pointer;
-      width: 90%;
-      border-radius: 0.2rem;
-      padding: 0.4rem;
+      width: 80%;
+      border-radius: 0.4rem;
+      padding: 0.2rem;
       display: flex;
       gap: 1rem;
       align-items: center;
@@ -124,12 +124,11 @@ const Container = styled.div`
       }
     }
     .selected {
-      background-color: #9a86f3;
+      background-color: #42f5a4;
     }
   }
-
   .current-user {
-    background-color: #0d0d30;
+    background-color: #42f5d7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,4 +153,5 @@ const Container = styled.div`
       }
     }
   }
+  
 `;

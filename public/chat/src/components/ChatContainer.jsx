@@ -8,7 +8,7 @@ import { v4 as uuidv4} from "uuid";
 
 export default function ChatContainer({ currentChat, socket }) {
   const [messages, setMessages] = useState([]);
-  const messageRef = useRef(null);
+  const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
 
   useEffect(() => {
@@ -79,13 +79,10 @@ export default function ChatContainer({ currentChat, socket }) {
     }
   }, [arrivalMessage]);
 
-  useLayoutEffect(() => {
-    if (messageRef.current) {
-      setTimeout(() => {
-        messageRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
-      }, 100);
-    }
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
 
   return (
     <Container>
@@ -115,7 +112,7 @@ export default function ChatContainer({ currentChat, socket }) {
             </div>
           </div>
         ))}
-        <div ref={messageRef} />
+        <div ref={scrollRef} />
       </div>
       <ChatInput handleSendMsg={handleSendMsg} />
     </Container>
@@ -174,7 +171,7 @@ const Container = styled.div`
         padding: 1rem;
         font-size: 1.1rem;
         border-radius: 1rem;
-        color: #d1d1d1;
+        color: black;
         @media screen and (min-width: 720px) and (max-width: 1080px) {
           max-width: 70%;
         }
@@ -183,13 +180,13 @@ const Container = styled.div`
     .sended {
       justify-content: flex-end;
       .content {
-        background-color: #4f04ff21;
+        background-color: #42c5f5;
       }
     }
     .received {
       justify-content: flex-start;
       .content {
-        background-color: #9900ff20;
+        background-color: #42f58d;
       }
     }
   }
